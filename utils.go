@@ -24,8 +24,8 @@ func SumOfDigits(n int) int {
 type FFResponseData struct {
 	Found  bool   `json:"found"`
 	Number int    `json:"number"`
-	Text   string `json: "text"`
-	Type   string `json: "type"`
+	Text   string `json:"text"`
+	Type   string `json:"type"`
 }
 
 func GetFunFact(n int) (string, error) {
