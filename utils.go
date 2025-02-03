@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"strconv"
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 )
 
 func SumOfDigits(n int) int {
@@ -85,19 +85,16 @@ func IsArmStrongFn(n int) []string {
 	if n%2 == 0 {
 		status = "even"
 	}
-	var tempNumber, remainder int
-	var result int = 0
 
-	tempNumber = n
+	var temp, remainder, result int
+	// initialize the variables
+	temp = n
 
-	for {
-		remainder = tempNumber % 10
+	// Use of For Loop
+	for temp > 0 {
+		remainder = temp % 10
 		result += remainder * remainder * remainder
-		tempNumber /= 10
-
-		if tempNumber == 0 {
-			break // Break Statement used to stop the loop
-		}
+		temp /= 10
 	}
 
 	if result == n {
