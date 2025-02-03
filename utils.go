@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"math"
 	"fmt"
 	"io"
 	"net/http"
@@ -81,6 +82,7 @@ func IsPrimeFn(n int) bool {
 }
 
 func IsArmStrongFn(n int) []string {
+	order := len(strconv.Itoa(n))
 	status := "odd"
 	if n%2 == 0 {
 		status = "even"
@@ -93,7 +95,7 @@ func IsArmStrongFn(n int) []string {
 	// Use of For Loop
 	for temp > 0 {
 		remainder = temp % 10
-		result += remainder * remainder * remainder
+		result += int(math.Pow(float64(remainder), float64(order)))
 		temp /= 10
 	}
 
