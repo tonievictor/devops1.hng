@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"math"
 	"fmt"
 	"io"
+	"math"
 	"net/http"
 	"strconv"
 )
@@ -59,6 +59,9 @@ func GetFunFact(n int) (string, error) {
 func IsPerfectFn(n int) bool {
 	// A perfect number is a positive integer
 	// equal to the sum of its proper divisors (excluding itself).
+	if n == 0 {
+		return false
+	}
 
 	sum := 0
 	for i := 1; i < n; i++ {
@@ -89,10 +92,8 @@ func IsArmStrongFn(n int) []string {
 	}
 
 	var temp, remainder, result int
-	// initialize the variables
 	temp = n
 
-	// Use of For Loop
 	for temp > 0 {
 		remainder = temp % 10
 		result += int(math.Pow(float64(remainder), float64(order)))
